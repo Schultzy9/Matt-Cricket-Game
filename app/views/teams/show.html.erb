@@ -1,0 +1,12 @@
+<h1><%= @team.name %></h1>
+
+<ol>
+  <% @team.players.each do |player| %>
+  <li><%= player.name %></li>
+  <% end %>
+</ol>
+
+<div class="controls">
+  <%= link_to 'Edit team', edit_team_path(@team) %>
+  <%= button_to 'Delete team', @team, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+</div>

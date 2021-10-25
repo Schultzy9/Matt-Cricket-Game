@@ -1,0 +1,9 @@
+<%= form_for @player do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name, :required => true %><br>
+  <%= f.label :position %><br>
+  <%= f.text_field :position %><br>
+  <%= f.label :team_id %><br>
+  <%= f.select :team_id, Team.pluck(:name, :id)%><br><br>
+  <%= f.submit %>
+<% end %>

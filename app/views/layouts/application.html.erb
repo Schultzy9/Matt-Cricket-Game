@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MattCricketGame</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav>
+      <%= link_to 'Home', root_path %>
+      <% if @current_user.present? %>
+        <%= link_to "Log out #{@current_user.name}", login_path, :method => 'delete' %>
+        <%= link_to "Customise Teams", teams_path %>
+        <%= link_to "Customise Players", players_path %>
+        <%= link_to "Play Game", games_path %>
+      <% else %>
+        <%= link_to 'Log in', login_path %>
+        <%= link_to 'Sign up', new_user_path %>
+      <% end %>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>
