@@ -1,6 +1,6 @@
 User.destroy_all
-u1 = User.create :email => 'admin@ga.co', :name => 'God', :admin => true, :password => 'chicken'
-u2 = User.create :email => 'matt@ga.co', :name => 'Matt', :admin => false, :password => 'chicken'
+u1 = User.create :email => 'admin@ga.co', :name => 'God', :admin => true
+u2 = User.create :email => 'matt@ga.co', :name => 'Matt', :admin => false
 puts "#{User.count} users created"
 
 Team.destroy_all
