@@ -12,17 +12,9 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @team = params[:team_id]
-    if @team.players.count < 11
-      player = Player.create player_params
-      player.save
-      redirect_to root_path
-
-    else
-      @message = "This team has too many players. Please delete a player before adding a new one."
-      redirect_to new_player_path
-
-    end
+    player = Player.create player_params
+    player.save
+    redirect_to root_path
   end
 
   def edit
