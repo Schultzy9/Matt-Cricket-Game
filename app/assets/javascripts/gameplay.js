@@ -1,15 +1,17 @@
-let team1runs = 0;
-let team1wickets = 0;
-let team1overs = 0;
-let team1totalballs = 0;
-let team2runs = 0;
-let team2wickets = 0;
-let team2overs = 0;
-let team2totalballs = 0;
-let player1turn = true;
+
 
 $(document).on('turbolinks:load', function() {
 
+  let team1runs = 0;
+  let team1wickets = 0;
+  let team1overs = 0;
+  let team1totalballs = 0;
+  let team2runs = 0;
+  let team2wickets = 0;
+  let team2overs = 0;
+  let team2totalballs = 0;
+  let player1turn = true;
+  
   const setScorecard = function () {
     $('#team1runs').text('Runs : ' + team1runs);
     $('#team2runs').text('Runs : ' + team2runs);
