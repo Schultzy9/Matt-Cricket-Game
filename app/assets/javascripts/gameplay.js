@@ -8,7 +8,7 @@ let team2overs = 0;
 let team2totalballs = 0;
 let player1turn = true;
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
   const setScorecard = function () {
     $('#team1runs').text('Runs : ' + team1runs);

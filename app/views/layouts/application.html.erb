@@ -17,6 +17,7 @@
         <%= link_to "Log out #{@current_user.name}", login_path, :method => 'delete' %>
         <%= link_to "Customise Teams", teams_path %>
         <%= link_to "Customise Players", players_path %>
+        <%= link_to "Play Game", games_path %>
       <% else %>
         <%= link_to 'Log in', login_path %>
         <%= link_to 'Sign up', new_user_path %>
