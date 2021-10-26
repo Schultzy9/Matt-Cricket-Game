@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   resources :players
 
   get '/games' => 'games#home'
+  post '/games' => 'games#start'
+  get '/games/t20' => 'games#t20', :as => :t20
 
 end
