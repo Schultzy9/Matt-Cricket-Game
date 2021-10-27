@@ -15,15 +15,17 @@
     <div class ='container'>
 
     <nav class="navbar navbar-dark bg-dark">
-      <%= link_to 'Home', root_path, :class => 'nav-link'%>
-      <% if @current_user.present? %>
-        <%= link_to "Log out #{@current_user.name}", login_path, :method => 'delete' %>
-        <%= link_to "Customise Teams", teams_path %>
-        <%= link_to "Play Game", games_path %>
-      <% else %>
-        <%= link_to 'Log in', login_path %>
-        <%= link_to 'Sign up', new_user_path %>
-      <% end %>
+      <ul class="nav">
+        <li class="nav-item"><%= link_to 'Home', root_path, :class => 'nav-link'%></li>
+        <% if @current_user.present? %>
+          <li class="nav-item"><%= link_to "Log out", login_path, :method => 'delete', :class => 'nav-link' %></li>
+          <li class="nav-item"><%= link_to "Customise Teams", teams_path, :class => 'nav-link' %></li>
+          <li class="nav-item"><%= link_to "Play Game", games_path, :class => 'nav-link' %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to 'Log in', login_path, :class => 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'Sign up', new_user_path, :class => 'nav-link' %></li>
+        <% end %>
+      </ul>
     </nav>
 
     <%= yield %>

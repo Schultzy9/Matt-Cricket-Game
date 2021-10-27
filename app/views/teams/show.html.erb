@@ -1,7 +1,7 @@
 <h1><%= @team.name %></h1>
 
 <ol>
-  <% @team.players.each do |player| %>
+  <% @team.players.order(:id).each do |player| %>
   <li><%= link_to player.name, player %></li>
   <% end %>
 </ol>

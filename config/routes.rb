@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get '/games' => 'games#home'
   post '/games' => 'games#start'
   get '/games/t20' => 'games#t20', :as => :t20
+  post '/games/t20' => 'games#scores', :as => :scores
 
 end

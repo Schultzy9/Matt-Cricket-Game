@@ -1,25 +1,85 @@
 <div class='row'>
-<div class='col-6'>
+<div class='col-4 first-team'>
   <h2><%= $t1.name %></h2>
 
   <p id='team1runs'>Runs: </p>
   <p id='team1wickets'>Wickets: </p>
   <p id='team1overs'>Overs: </p>
 
-  <button id='bowl'>Bowl ball</button>
 </div>
-<div class='col-6'>
+
+<div class='col-4 scorecard'>
+
+  <h1 id='result'>Play Game</h1><br>
+  <h1 id='lastball'>0</h1>
+
+  <button id='bowl'>Bowl ball</button><br>
+
+</div>
+
+<div class='col-4 second-team'>
   <h2><%= $t2.name %></h2>
 
   <p id='team2runs'>Runs: </p>
   <p id='team2wickets'>Wickets: </p>
   <p id='team2overs'>Overs: </p>
 
+  <%= form_tag do %>
+    <%= text_area_tag :t1p1Runs, nil, :id => 't1p1Runs', :hidden => true %>
+    <%= text_area_tag :t1p2Runs, nil, :id => 't1p2Runs', :hidden => true %>
+    <%= text_area_tag :t1p3Runs, nil, :id => 't1p3Runs', :hidden => true %>
+    <%= text_area_tag :t1p4Runs, nil, :id => 't1p4Runs', :hidden => true %>
+    <%= text_area_tag :t1p5Runs, nil, :id => 't1p5Runs', :hidden => true %>
+    <%= text_area_tag :t1p6Runs, nil, :id => 't1p6Runs', :hidden => true %>
+    <%= text_area_tag :t1p7Runs, nil, :id => 't1p7Runs', :hidden => true %>
+    <%= text_area_tag :t1p8Runs, nil, :id => 't1p8Runs', :hidden => true %>
+    <%= text_area_tag :t1p9Runs, nil, :id => 't1p9Runs', :hidden => true %>
+    <%= text_area_tag :t1p10Runs, nil, :id => 't1p10Runs', :hidden => true %>
+    <%= text_area_tag :t1p11Runs, nil, :id => 't1p11Runs', :hidden => true %>
+    <%= text_area_tag :t2p1Runs, nil, :id => 't2p1Runs', :hidden => true %>
+    <%= text_area_tag :t2p2Runs, nil, :id => 't2p2Runs', :hidden => true %>
+    <%= text_area_tag :t2p3Runs, nil, :id => 't2p3Runs', :hidden => true %>
+    <%= text_area_tag :t2p4Runs, nil, :id => 't2p4Runs', :hidden => true %>
+    <%= text_area_tag :t2p5Runs, nil, :id => 't2p5Runs', :hidden => true %>
+    <%= text_area_tag :t2p6Runs, nil, :id => 't2p6Runs', :hidden => true %>
+    <%= text_area_tag :t2p7Runs, nil, :id => 't2p7Runs', :hidden => true %>
+    <%= text_area_tag :t2p8Runs, nil, :id => 't2p8Runs', :hidden => true %>
+    <%= text_area_tag :t2p9Runs, nil, :id => 't2p9Runs', :hidden => true %>
+    <%= text_area_tag :t2p10Runs, nil, :id => 't2p10Runs', :hidden => true %>
+    <%= text_area_tag :t2p11Runs, nil, :id => 't2p11Runs', :hidden => true %>
+    <%= text_area_tag :t1p1NotOuts, nil, :id => 't1p1NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p2pNotOuts, nil, :id => 't1p2NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p3NotOuts, nil, :id => 't1p3NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p4NotOuts, nil, :id => 't1p4NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p5NotOuts, nil, :id => 't1p5NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p6NotOuts, nil, :id => 't1p6NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p7NotOuts, nil, :id => 't1p7NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p8NotOuts, nil, :id => 't1p8NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p9NotOuts, nil, :id => 't1p9NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p10NotOuts, nil, :id => 't1p10NotOuts', :hidden => true %>
+    <%= text_area_tag :t1p11NotOuts, nil, :id => 't1p11NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p1NotOuts, nil, :id => 't2p1NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p2NotOuts, nil, :id => 't2p2NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p3NotOuts, nil, :id => 't2p3NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p4NotOuts, nil, :id => 't2p4NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p5NotOuts, nil, :id => 't2p5NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p6NotOuts, nil, :id => 't2p6NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p7NotOuts, nil, :id => 't2p7NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p8NotOuts, nil, :id => 't2p8NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p9NotOuts, nil, :id => 't2p9NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p10NotOuts, nil, :id => 't2p10NotOuts', :hidden => true %>
+    <%= text_area_tag :t2p11NotOuts, nil, :id => 't2p11NotOuts', :hidden => true %><br>
+    <%= submit_tag 'Save Scores', :id => 'submit' %>
+  <% end %>
+
+  <br>
+
+
 </div>
 </div>
 <div class='row'>
-<div class='col-6'>
-  <h2><%= $t1.name %></h2>
+<div class='col-5 team-list'>
+  <h2>Player</h2>
   <p id='team1player1'>Player 1: </p>
   <p id='team1player2'>Player 2: </p>
   <p id='team1player3'>Player 3: </p>
@@ -30,10 +90,26 @@
   <p id='team1player8'>Player 8: </p>
   <p id='team1player9'>Player 9: </p>
   <p id='team1player10'>Player 10: </p>
+  <p id='team1player11'>Player 11: </p>
 </div>
 
-<div class='col-6'>
-  <h2><%= $t2.name %></h2>
+<div class='col-1 scores'>
+  <h2>Runs</h2>
+  <p id='team1player1score'>0 (0)</p>
+  <p id='team1player2score'>0 (0)</p>
+  <p id='team1player3score'>0 (0)</p>
+  <p id='team1player4score'>0 (0)</p>
+  <p id='team1player5score'>0 (0)</p>
+  <p id='team1player6score'>0 (0)</p>
+  <p id='team1player7score'>0 (0)</p>
+  <p id='team1player8score'>0 (0)</p>
+  <p id='team1player9score'>0 (0)</p>
+  <p id='team1player10score'>0 (0)</p>
+  <p id='team1player11score'>0 (0)</p>
+</div>
+
+<div class='col-5 team-list'>
+  <h2>Player</h2>
   <p id='team2player1'>Player 1: </p>
   <p id='team2player2'>Player 2: </p>
   <p id='team2player3'>Player 3: </p>
@@ -44,8 +120,22 @@
   <p id='team2player8'>Player 8: </p>
   <p id='team2player9'>Player 9: </p>
   <p id='team2player10'>Player 10: </p>
+  <p id='team2player11'>Player 10: </p>
+</div>
+
+<div class='col-1 scores'>
+  <h2>Runs</h2>
+  <p id='team2player1score'>0 (0)</p>
+  <p id='team2player2score'>0 (0)</p>
+  <p id='team2player3score'>0 (0)</p>
+  <p id='team2player4score'>0 (0)</p>
+  <p id='team2player5score'>0 (0)</p>
+  <p id='team2player6score'>0 (0)</p>
+  <p id='team2player7score'>0 (0)</p>
+  <p id='team2player8score'>0 (0)</p>
+  <p id='team2player9score'>0 (0)</p>
+  <p id='team2player10score'>0 (0)</p>
+  <p id='team2player11score'>0 (0)</p>
 </div>
 
 </div>
-
-<h1 id='result'></h1>
