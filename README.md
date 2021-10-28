@@ -1,24 +1,19 @@
-# README
+# 1Project
+> by Matt Schultz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Matt's Cricket Game
 
-Things you may want to cover:
+A simple game of cricket. Click to bowl the ball and watch the score progress.
 
-* Ruby version
+* **Create/edit teams** - Create your own team of 11 players and login to save them.
+* **View player stats** - Once you have your team saved you can view the individual stats for all the players.
 
-* System dependencies
+Play against your friends or play with yourself (if you don't have any friends).
 
-* Configuration
+### Play the game ###
 
-* Database creation
+Play [Matt's Cricket Game](https://matt-cricket-game.herokuapp.com/) here. Good luck.
 
-* Database initialization
+### Safety warning
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Matt's Cricket Game is a fairly safe game involving minimal to no exercise (similar to real cricket), however be warned that should you stumble across a link to a super-top-secret-super-intense version of the game, be warned that this version is not safe for anyone who suffers from photosensitive epilepsy.

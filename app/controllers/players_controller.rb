@@ -24,7 +24,7 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-    params.require(:player).permit(:name)
+    params.require(:player).permit(:name, :bat__rating)
   end
 
 end

@@ -4,26 +4,48 @@
   <%= label_tag :name %>
   <%= text_field_tag :name, nil, :required => true %><br><br>
   <%= label_tag :p1, 'Player 1' %>
-  <%= text_field_tag :p1, nil, :required => true %><br><br>
+  <%= text_field_tag :p1, nil, :required => true %>
+  <%= label_tag :p1bat_rating, 'Batting Rating' %>
+  <%= select_tag :p1bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p2, 'Player 2' %>
-  <%= text_field_tag :p2, nil, :required => true %><br><br>
+  <%= text_field_tag :p2, nil, :required => true %>
+  <%= label_tag :p2bat_rating, 'Batting Rating' %>
+  <%= select_tag :p2bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p3, 'Player 3' %>
-  <%= text_field_tag :p3, nil, :required => true %><br><br>
+  <%= text_field_tag :p3, nil, :required => true %>
+  <%= label_tag :p3bat_rating, 'Batting Rating' %>
+  <%= select_tag :p3bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p4, 'Player 4' %>
-  <%= text_field_tag :p4, nil, :required => true %><br><br>
+  <%= text_field_tag :p4, nil, :required => true %>
+  <%= label_tag :p4bat_rating, 'Batting Rating' %>
+  <%= select_tag :p4bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p5, 'Player 5' %>
-  <%= text_field_tag :p5, nil, :required => true %><br><br>
+  <%= text_field_tag :p5, nil, :required => true %>
+  <%= label_tag :p5bat_rating, 'Batting Rating' %>
+  <%= select_tag :p5bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p6, 'Player 6' %>
-  <%= text_field_tag :p6, nil, :required => true %><br><br>
+  <%= text_field_tag :p6, nil, :required => true %>
+  <%= label_tag :p6bat_rating, 'Batting Rating' %>
+  <%= select_tag :p6bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p7, 'Player 7' %>
-  <%= text_field_tag :p7, nil, :required => true %><br><br>
+  <%= text_field_tag :p7, nil, :required => true %>
+  <%= label_tag :p7bat_rating, 'Batting Rating' %>
+  <%= select_tag :p7bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p8, 'Player 8' %>
-  <%= text_field_tag :p8, nil, :required => true %><br><br>
+  <%= text_field_tag :p8, nil, :required => true %>
+  <%= label_tag :p8bat_rating, 'Batting Rating' %>
+  <%= select_tag :p8bat_rating, options_for_select(1..5) %><br><br>
   <%= label_tag :p9, 'Player 9' %>
-  <%= text_field_tag :p9, nil, :required => true %><br><br>
+  <%= text_field_tag :p9, nil, :required => true %>
+  <%= label_tag :p9bat_rating, 'Batting Rating' %>
+  <%= select_tag :p9bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p10, 'Player 10' %>
-  <%= text_field_tag :p10, nil, :required => true %><br><br>
+  <%= text_field_tag :p10, nil, :required => true %>
+  <%= label_tag :p10bat_rating, 'Batting Rating' %>
+  <%= select_tag :p10bat_rating, options_for_select(1..5)%><br><br>
   <%= label_tag :p11, 'Player 11' %>
-  <%= text_field_tag :p11, nil, :required => true %><br><br>
+  <%= text_field_tag :p11, nil, :required => true %>
+  <%= label_tag :p11bat_rating, 'Batting Rating' %>
+  <%= select_tag :p11bat_rating, options_for_select(1..5)%><br><br>
   <%= submit_tag 'Create team' %>
 <% end %>

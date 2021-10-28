@@ -20,51 +20,88 @@ class GamesController < ApplicationController
     gon.t2 = $t2.name
     t1p1 = $t1.players.find_by position: '1'
     gon.t1p1 = t1p1.name
+    gon.t1p1rating = t1p1.bat__rating
     t1p2 = $t1.players.find_by position: '2'
     gon.t1p2 = t1p2.name
+    gon.t1p2rating = t1p2.bat__rating
     t1p3 = $t1.players.find_by position: '3'
     gon.t1p3 = t1p3.name
+    gon.t1p3rating = t1p3.bat__rating
     t1p4 = $t1.players.find_by position: '4'
     gon.t1p4 = t1p4.name
+    gon.t1p4rating = t1p4.bat__rating
     t1p5 = $t1.players.find_by position: '5'
     gon.t1p5 = t1p5.name
+    gon.t1p5rating = t1p5.bat__rating
     t1p6 = $t1.players.find_by position: '6'
     gon.t1p6 = t1p6.name
+    gon.t1p6rating = t1p6.bat__rating
     t1p7 = $t1.players.find_by position: '7'
     gon.t1p7 = t1p7.name
+    gon.t1p7rating = t1p7.bat__rating
     t1p8 = $t1.players.find_by position: '8'
     gon.t1p8 = t1p8.name
+    gon.t1p8rating = t1p8.bat__rating
     t1p9 = $t1.players.find_by position: '9'
     gon.t1p9 = t1p9.name
+    gon.t1p9rating = t1p9.bat__rating
     t1p10 = $t1.players.find_by position: '10'
     gon.t1p10 = t1p10.name
+    gon.t1p10rating = t1p10.bat__rating
     t1p11 = $t1.players.find_by position: '11'
     gon.t1p11 = t1p11.name
+    gon.t1p11rating = t1p11.bat__rating
     t2p1 = $t2.players.find_by position: '1'
     gon.t2p1 = t2p1.name
+    gon.t2p1rating = t2p1.bat__rating
     t2p2 = $t2.players.find_by position: '2'
     gon.t2p2 = t2p2.name
+    gon.t2p2rating = t2p2.bat__rating
     t2p3 = $t2.players.find_by position: '3'
     gon.t2p3 = t2p3.name
+    gon.t2p3rating = t2p3.bat__rating
     t2p4 = $t2.players.find_by position: '4'
     gon.t2p4 = t2p4.name
+    gon.t2p4rating = t2p4.bat__rating
     t2p5 = $t2.players.find_by position: '5'
     gon.t2p5 = t2p5.name
+    gon.t2p5rating = t2p5.bat__rating
     t2p6 = $t2.players.find_by position: '6'
     gon.t2p6 = t2p6.name
+    gon.t2p6rating = t2p6.bat__rating
     t2p7 = $t2.players.find_by position: '7'
     gon.t2p7 = t2p7.name
+    gon.t2p7rating = t2p7.bat__rating
     t2p8 = $t2.players.find_by position: '8'
     gon.t2p8 = t2p8.name
+    gon.t2p8rating = t2p8.bat__rating
     t2p9 = $t2.players.find_by position: '9'
     gon.t2p9 = t2p9.name
+    gon.t2p9rating = t2p9.bat__rating
     t2p10 = $t2.players.find_by position: '10'
     gon.t2p10 = t2p10.name
+    gon.t2p10rating = t2p10.bat__rating
     t2p11 = $t2.players.find_by position: '11'
+    gon.t2p11rating = t2p11.bat__rating
     gon.t2p11 = t2p11.name
   end
 
   def scores
+    if params[:winningTeam] == 'team1'
+      $t1.games_won += 1
+      $t2.games_lost += 1
+      $t1.games_played += 1
+      $t2.games_played += 1
+      $t1.save
+      $t2.save
+    else
+      $t2.games_won += 1
+      $t1.games_lost += 1
+      $t1.games_played += 1
+      $t2.games_played += 1
+      $t1.save
+      $t2.save
+    end
     $t1.players.each do |p|
       p.total_games += 1
       p.save

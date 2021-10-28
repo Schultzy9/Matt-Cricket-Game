@@ -28,7 +28,7 @@ h2 {
 
 .list a {
   color: black;
-  font-size: 150%;
+  font-size: 120%;
 }
 
 .nav a {
@@ -99,6 +99,17 @@ img {
   100% {background-color: pink;}
 }
 
+@keyframes cat-text {
+  0%   {color: pink;}
+  15%  {color: yellow;}
+  30%  {color: purple;}
+  45%  {color: skyblue;}
+  60%  {color: navy;}
+  75%  {color: orange;}
+  90%  {color: maroon;}
+  100% {color: pink;}
+}
+
 .cat-game {
   animation-name: cat-background;
   animation-duration: 10s;
@@ -106,21 +117,34 @@ img {
   color: white;
 }
 
+.cat-game2 {
+  animation-name: cat-background;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  color: white;
+}
+
 .cat-game-scorecard {
   background-image: url('/assets/catgif1.gif');
   background-size: cover;
-  color: blue;
+  animation-name: cat-text;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
 
 .cat-game-teams1 {
   background-image: url('/assets/catgif2.gif');
   background-size: 130%;
   background-position: center;
-  color: red;
+  animation-name: cat-text;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
 
 .cat-game-teams2 {
   background-image: url('/assets/catgif3.gif');
   background-size: cover;
-  color: red;
+  animation-name: cat-text;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }

@@ -1,5 +1,9 @@
 <h1><%= @team.name %></h1>
 
+<p>Matches: <%= @team.games_played %></p>
+<p>Wins: <%= @team.games_won %></p>
+<p>Losses: <%= @team.games_lost %></p>
+
 <ol>
   <% @team.players.order(:id).each do |player| %>
   <li class='list'><%= link_to player.name, player %></li>

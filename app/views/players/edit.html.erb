@@ -3,6 +3,8 @@
 <%= form_for @player do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name, :required => true %><br>
+  <%= f.label :bat__rating, 'Batting Rating' %>
+  <%= f.select :bat__rating, options_for_select(1..5)%><br><br>
   <%= f.submit %>
 <% end %>
 

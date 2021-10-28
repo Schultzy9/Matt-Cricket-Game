@@ -1,29 +1,37 @@
 const team1BatterScores = [
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p1 },
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p2 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p3 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p4 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p5 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p6 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p7 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p8 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p9 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p10 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p11 }
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p1, rating: gon.t1p1rating },
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p2, rating: gon.t1p2rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p3, rating: gon.t1p3rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p4, rating: gon.t1p4rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p5, rating: gon.t1p5rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p6, rating: gon.t1p6rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p7, rating: gon.t1p7rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p8, rating: gon.t1p8rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p9, rating: gon.t1p9rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p10, rating: gon.t1p10rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p11, rating: gon.t1p11rating }
 ]
 
 const team2BatterScores = [
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t2p1 },
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t2p2 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p3 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p4 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p5 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p6 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p7 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p8 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p9 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p10 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p11 }
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t2p1, rating: gon.t2p1rating },
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t2p2, rating: gon.t2p2rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p3, rating: gon.t2p3rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p4, rating: gon.t2p4rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p5, rating: gon.t2p5rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p6, rating: gon.t2p6rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p7, rating: gon.t2p7rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p8, rating: gon.t2p8rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p9, rating: gon.t2p9rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p10, rating: gon.t2p10rating },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p11, rating: gon.t2p11rating }
+]
+
+const ratingConversion = [
+  [1, 1, 1, 2, 3, 4, 5, 5, 5, 6],
+  [1, 1, 1, 2, 2, 3, 4, 5, 5, 6],
+  [1, 1, 1, 2, 2, 3, 3, 4, 5, 6],
+  [1, 1, 1, 2, 2, 3, 4, 4, 5, 6],
+  [1, 1, 2, 2, 3, 4, 4, 5, 6, 6]
 ]
 
   let bat1 = { batsmen: team1BatterScores[0], strike: true};
@@ -194,7 +202,12 @@ $(document).ready(function() {
   }
 
   const bowlBallTeam1 = function() {
-    ballResult = Math.floor(Math.random() * 6) + 1;
+    let num = Math.floor(Math.random() * 10);
+    if (bat1.strike === true) {
+      ballResult = ratingConversion[bat1.batsmen.rating - 1][num]
+    } else {
+      ballResult = ratingConversion[bat2.batsmen.rating - 1][num]
+    }
     if (ballResult !== 5) {
       team1Runs += ballResult;
       $('#lastball').text('Last ball: ' + ballResult)
@@ -208,7 +221,12 @@ $(document).ready(function() {
   }
 
   const bowlBallTeam2 = function() {
-    ballResult = Math.floor(Math.random() * 6) + 1;
+    let num = Math.floor(Math.random() * 10);
+    if (bat1.strike === true) {
+      ballResult = ratingConversion[bat1.batsmen.rating - 1][num]
+    } else {
+      ballResult = ratingConversion[bat2.batsmen.rating - 1][num]
+    }
     if (ballResult !== 5) {
       team2Runs += ballResult;
       $('#lastball').text('Last ball: ' + ballResult)
@@ -249,11 +267,13 @@ $(document).ready(function() {
       $('#result').text(gon.t1 + ' wins!')
       checkNotOuts();
       $('#submit').show();
+      $('#winningTeam').text('team1')
       gameOver = true;
     } else if (team2Runs > team1Runs) {
       $('#result').text(gon.t2 + ' wins!')
       checkNotOuts();
       $('#submit').show();
+      $('#winningTeam').text('team2')
       gameOver = true;
     }
   }
@@ -359,8 +379,9 @@ $(document).ready(function() {
 
 const checkCatGame = function() {
   if (gon.t1 == 'Meow' && gon.t2 == 'Meow-Meow') {
+    alert('WARNING - do not continue if you suffer from photosensitive epilepsy');
     $('.team-list').addClass('cat-game');
-    $('.scores').addClass('cat-game');
+    $('.scores').addClass('cat-game2');
     $('.scorecard').addClass('cat-game-scorecard');
     $('.first-team').addClass('cat-game-teams1');
     $('.second-team').addClass('cat-game-teams2');
