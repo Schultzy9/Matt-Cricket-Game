@@ -2,8 +2,8 @@
 
 <p>Games: <%= @player.total_games %>
 <p>Runs: <%= @player.total_runs %></p>
-<p>Not Outs: <%= @player.total_not_outs %></p>
-<% if @player.total_games > 0 %>
+<p>Not Outs/DNB: <%= @player.total_not_outs %></p>
+<% if @player.total_games - @player.total_not_outs > 0 %>
   <p>Average: <%= (@player.total_runs / (@player.total_games - @player.total_not_outs)).to_f %></p>
 <% end %>
 
