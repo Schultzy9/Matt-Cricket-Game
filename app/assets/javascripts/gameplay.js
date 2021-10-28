@@ -1,3 +1,4 @@
+
 const team1BatterScores = [
   { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p1, rating: gon.t1p1rating },
   { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p2, rating: gon.t1p2rating },
@@ -26,16 +27,18 @@ const team2BatterScores = [
   { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p11, rating: gon.t2p11rating }
 ]
 
+//CONVERTS BATTER RATING INTO ARRAY OF POSSIBLE OPTIONS
 const ratingConversion = [
-  [1, 1, 1, 2, 3, 4, 5, 5, 5, 6],
-  [1, 1, 1, 2, 2, 3, 4, 5, 5, 6],
-  [1, 1, 1, 2, 2, 3, 3, 4, 5, 6],
-  [1, 1, 1, 2, 2, 3, 4, 4, 5, 6],
-  [1, 1, 2, 2, 3, 4, 4, 5, 6, 6]
+  [1, 1, 1, 2, 3, 4, 5, 5, 5, 6],// 1
+  [1, 1, 1, 2, 2, 3, 4, 5, 5, 6],// 2
+  [1, 1, 1, 2, 2, 3, 3, 4, 5, 6],// 3
+  [1, 1, 1, 2, 2, 3, 4, 4, 5, 6],// 4
+  [1, 1, 2, 2, 3, 4, 4, 5, 6, 6] // 5
 ]
 
-  let bat1 = { batsmen: team1BatterScores[0], strike: true};
-  let bat2 = { batsmen: team1BatterScores[1], strike: false};
+//CURRENT BATTERS
+let bat1 = { batsmen: team1BatterScores[0], strike: true};
+let bat2 = { batsmen: team1BatterScores[1], strike: false};
 
 $(document).ready(function() {
 
@@ -55,6 +58,8 @@ $(document).ready(function() {
 
   let gameOver = false;
 
+  //CALCULATES THE RUNS GIVEN TO INDIVIDUAL BATTER AND KEEPS TRACK OF WHO IS ON STRIKE
+  //DETERMINES NEXT BATTER TO COME TO THE CREASE
   const updateScores = function() {
     if (ballResult === 1 || ballResult === 3) {
       if (bat1.strike === true) {
@@ -144,6 +149,7 @@ $(document).ready(function() {
     }
   }
 
+  //SETS THE SCORECARD FOR TEAM RUNS AND WICKETS
   const setScorecard = function () {
     $('#team1runs').text('Runs : ' + team1Runs);
     $('#team2runs').text('Runs : ' + team2Runs);
@@ -154,6 +160,8 @@ $(document).ready(function() {
     setDisplay();
   }
 
+  //ADDS THE PLAYERS NAMES FROM DATABASE
+  //UPDATES PLAYER SCORES THROUGHOUT THE GAME
   const setDisplay = function () {
       $('#team1player1').text(gon.t1p1 + ': ');
       $('#team1player2').text(gon.t1p2 + ': ');
@@ -201,6 +209,7 @@ $(document).ready(function() {
       $('#team2player11score').text(team2BatterScores[10].runs + ' (' + team2BatterScores[10].balls + ')');
   }
 
+  //CALCULATES RUNS/WICKET FROM BALL BOWLED
   const bowlBallTeam1 = function() {
     let num = Math.floor(Math.random() * 10);
     if (bat1.strike === true) {
@@ -239,6 +248,7 @@ $(document).ready(function() {
     setScorecard();
   }
 
+  //KEEPS TRACK OF OVERS BOWLED
   const setOvers = function (){
     if (player1Turn === true) {
       let overs = Math.floor(team1TotalBalls / 6)
@@ -251,6 +261,7 @@ $(document).ready(function() {
     }
   }
 
+  //CHECKS TO SEE WHO IS NOT OUT TO ADD TO DATABASE FOR AVERAGE SCORES
   const checkNotOuts = function () {
     for (let i = 0; i < 11; i++) {
       if (team1BatterScores[i].out === false) {
@@ -262,6 +273,7 @@ $(document).ready(function() {
     }
   }
 
+  //CHECKS AFTER BALL HAS BEEN BOWLED TO SEE IF SOMEONE WINS THE GAME
   const checkResult = function() {
     if (team1Wickets === 10 && team2Wickets === 10) {
       $('#result').text(gon.t1 + ' wins!')
@@ -278,6 +290,7 @@ $(document).ready(function() {
     }
   }
 
+  //CHANGES COLOURS OF BATTERS - GREEN FOR CURRENTLY BATTING AND RED FOR BEING OUT
   const highlightBatters = function() {
     for (let x = 0; x < team1BatterScores.length; x++) {
       if (team1BatterScores[x].batting === true && team1BatterScores[x].out === false) {
@@ -297,6 +310,7 @@ $(document).ready(function() {
     }
   }
 
+  //SHOWS THE USER WHICH BATTER IS GOING TO FACE THE NEXT BALL
   const setStrike = function() {
     if (bat1.strike === true) {
       $("#strike").text("On Strike: " + bat1.batsmen.name)
@@ -326,6 +340,8 @@ $(document).ready(function() {
     setStrike();
   });
 
+
+  //SAVES THE SCORES IN A HIDDEN FIELD SO THAT IT CAN BE ADDED TO THE DATABASE
   $('#submit').on('click', function() {
     if (gameOver === true) {
       $('#t1p1Runs').text(team1BatterScores[0].runs)
