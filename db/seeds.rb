@@ -4,8 +4,8 @@ u2 = User.create :email => 'matt@ga.co', :name => 'Matt', :admin => false, :pass
 puts "#{User.count} users created"
 
 Team.destroy_all
-t1 = Team.create :name => 'Australia (default)', :games_won => 0, :games_lost => 0, :games_tied => 0
-t2 = Team.create :name => 'India (default)', :games_won => 0, :games_lost => 0, :games_tied => 0
+t1 = Team.create :name => 'Australia', :games_won => 0, :games_lost => 0, :games_tied => 0
+t2 = Team.create :name => 'India', :games_won => 0, :games_lost => 0, :games_tied => 0
 puts "#{Team.count} teams created"
 
 Player.destroy_all

@@ -1,4 +1,4 @@
-<h1>Games</h1>
+<h1>Choose your teams</h1>
 
 <%= form_tag do %>
   <%= label_tag :firstteam, 'Batting First' %>
@@ -7,3 +7,5 @@
   <%= select_tag :secondteam, options_from_collection_for_select(@teams, "id", "name") %>
   <%= submit_tag 'Play game' %>
 <% end %>
+
+<img src="/assets/cricket-ball.png" alt="cricket logo">

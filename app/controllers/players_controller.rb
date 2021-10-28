@@ -1,24 +1,13 @@
 class PlayersController < ApplicationController
-  def index
-    @players = Player.all
-  end
 
   def show
     @player = Player.find params[:id]
   end
 
-  def new
-    @player = Player.new
-  end
-
-  def create
-    player = Player.create player_params
-    player.save
-    redirect_to root_path
-  end
-
   def edit
     @player = Player.find params[:id]
+    @team = Team.find @player.team_id
+    check_for_login
   end
 
   def update
@@ -35,7 +24,7 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-    params.require(:player).permit(:name, :position, :team_id)
+    params.require(:player).permit(:name)
   end
 
 end

@@ -77,6 +77,7 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find params[:id]
+    check_for_login
   end
 
   def update

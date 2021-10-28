@@ -2,7 +2,11 @@ class GamesController < ApplicationController
 
   def home
     adminteams = User.find_by email: 'admin@ga.co'
-    @teams = @current_user.teams + adminteams.teams
+    if @current_user.present?
+      @teams = @current_user.teams + adminteams.teams
+    else
+      @teams = adminteams.teams
+    end
   end
 
   def start

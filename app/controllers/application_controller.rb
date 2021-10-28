@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_for_login
-    redirect_to login_path unless @current_user.present?
+    redirect_to login_path unless @current_user.id == @team.user_id
   end
 
   def check_for_admin

@@ -2,6 +2,8 @@
 
 body {
   font-family: 'Zen Antique Soft', serif;
+  background-image: url('/assets/background.jpeg');
+  background-size: cover;
 }
 
 h1 {
@@ -13,10 +15,34 @@ h2 {
   padding-top: 10px;
 }
 
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 90vh;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.list a {
+  color: black;
+  font-size: 150%;
+}
+
+.nav a {
+  color: white;
+  text-transform: uppercase;
+}
+
 .scorecard {
-  border: 4px solid black;
+  border-bottom: 4px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
   background-color: silver;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .first-team {
@@ -32,7 +58,69 @@ h2 {
 .scores {
   text-align: right;
 }
-
 #result {
   padding-bottom: 0px;
+}
+
+.headline {
+  font-size: 400%;
+  text-align: center;
+}
+
+.headline a {
+  text-decoration: none;
+  color: red;
+}
+
+.current-batter {
+  color: green;
+}
+
+.out-batter {
+  color: red;
+}
+
+img {
+  max-width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+}
+
+@keyframes cat-background {
+  0%   {background-color: pink;}
+  15%  {background-color: yellow;}
+  30%  {background-color: purple;}
+  45% {background-color: skyblue;}
+  60% {background-color: navy;}
+  75% {background-color: orange;}
+  90% {background-color: maroon;}
+  100% {background-color: pink;}
+}
+
+.cat-game {
+  animation-name: cat-background;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  color: white;
+}
+
+.cat-game-scorecard {
+  background-image: url('/assets/catgif1.gif');
+  background-size: cover;
+  color: blue;
+}
+
+.cat-game-teams1 {
+  background-image: url('/assets/catgif2.gif');
+  background-size: 130%;
+  background-position: center;
+  color: red;
+}
+
+.cat-game-teams2 {
+  background-image: url('/assets/catgif3.gif');
+  background-size: cover;
+  color: red;
 }

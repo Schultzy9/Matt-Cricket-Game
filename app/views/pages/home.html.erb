@@ -1,5 +1,5 @@
-<h1>Home</h1>
+<h1 class="headline">Matt's Cricket Game</h1>
 
-<% if @current_user.present? %>
-  <h2>Welcome back <%= @current_user.name %></h2>
-<% end %>
+<img src="/assets/cricket-ball.png" alt="cricket logo">
+
+<h1 class="headline"><%= link_to "Play Game", games_path %></h1>

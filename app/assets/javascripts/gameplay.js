@@ -1,29 +1,29 @@
 const team1BatterScores = [
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 }
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p1 },
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t1p2 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p3 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p4 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p5 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p6 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p7 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p8 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p9 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p10 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t1p11 }
 ]
 
 const team2BatterScores = [
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: true, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 },
-  { runs: 0, balls: 0, out: false, batting: false, notouts: 0 }
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t2p1 },
+  { runs: 0, balls: 0, out: false, batting: true, notouts: 0, name: gon.t2p2 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p3 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p4 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p5 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p6 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p7 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p8 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p9 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p10 },
+  { runs: 0, balls: 0, out: false, batting: false, notouts: 0, name: gon.t2p11 }
 ]
 
   let bat1 = { batsmen: team1BatterScores[0], strike: true};
@@ -44,6 +44,8 @@ $(document).ready(function() {
   let player1Turn = true;
 
   let y = 0;
+
+  let gameOver = false;
 
   const updateScores = function() {
     if (ballResult === 1 || ballResult === 3) {
@@ -195,10 +197,10 @@ $(document).ready(function() {
     ballResult = Math.floor(Math.random() * 6) + 1;
     if (ballResult !== 5) {
       team1Runs += ballResult;
-      $('#lastball').text(ballResult)
+      $('#lastball').text('Last ball: ' + ballResult)
     } else {
       team1Wickets += 1;
-      $('#lastball').text('W')
+      $('#lastball').text('Last ball: W')
     }
     team1TotalBalls += 1;
     updateScores();
@@ -209,10 +211,10 @@ $(document).ready(function() {
     ballResult = Math.floor(Math.random() * 6) + 1;
     if (ballResult !== 5) {
       team2Runs += ballResult;
-      $('#lastball').text(ballResult)
+      $('#lastball').text('Last ball: ' + ballResult)
     } else {
       team2Wickets += 1;
-      $('#lastball').text('W')
+      $('#lastball').text('Last ball: W')
     }
     team2TotalBalls += 1;
     updateScores();
@@ -246,11 +248,44 @@ $(document).ready(function() {
     if (team1Wickets === 10 && team2Wickets === 10) {
       $('#result').text(gon.t1 + ' wins!')
       checkNotOuts();
+      $('#submit').show();
+      gameOver = true;
     } else if (team2Runs > team1Runs) {
       $('#result').text(gon.t2 + ' wins!')
       checkNotOuts();
+      $('#submit').show();
+      gameOver = true;
     }
   }
+
+  const highlightBatters = function() {
+    for (let x = 0; x < team1BatterScores.length; x++) {
+      if (team1BatterScores[x].batting === true && team1BatterScores[x].out === false) {
+        $("#team1player" + ( x + 1)).attr('class', 'current-batter')
+        $("#team1player" + ( x + 1) + "score").attr('class', 'current-batter')
+      } else if (team1BatterScores[x].batting === true && team1BatterScores[x].out === true) {
+        $("#team1player" + ( x + 1)).attr('class', 'out-batter')
+        $("#team1player" + ( x + 1) + "score").attr('class', 'out-batter')
+      }
+      if (player1Turn === false && team2BatterScores[x].batting === true && team2BatterScores[x].out === false) {
+        $("#team2player" + ( x + 1)).attr('class', 'current-batter')
+        $("#team2player" + ( x + 1) + "score").attr('class', 'current-batter')
+      } else if (player1Turn === false && team2BatterScores[x].batting === true && team2BatterScores[x].out === true) {
+        $("#team2player" + ( x + 1)).attr('class', 'out-batter')
+        $("#team2player" + ( x + 1) + "score").attr('class', 'out-batter')
+      }
+    }
+  }
+
+  const setStrike = function() {
+    if (bat1.strike === true) {
+      $("#strike").text("On Strike: " + bat1.batsmen.name)
+    } else {
+      $("#strike").text("On Strike: " + bat2.batsmen.name)
+    }
+  }
+
+//CLICK ON BOWL BALL TO PLAY GAME
 
   $('#bowl').on('click', function() {
     if (player1Turn === true && team1Wickets < 10) {
@@ -267,54 +302,77 @@ $(document).ready(function() {
     setOvers();
     setScorecard();
     checkResult();
+    highlightBatters();
+    setStrike();
   });
-
-  setScorecard();
 
   $('#submit').on('click', function() {
-    $('#t1p1Runs').text(team1BatterScores[0].runs)
-    $('#t1p2Runs').text(team1BatterScores[1].runs)
-    $('#t1p3Runs').text(team1BatterScores[2].runs)
-    $('#t1p4Runs').text(team1BatterScores[3].runs)
-    $('#t1p5Runs').text(team1BatterScores[4].runs)
-    $('#t1p6Runs').text(team1BatterScores[5].runs)
-    $('#t1p7Runs').text(team1BatterScores[6].runs)
-    $('#t1p8Runs').text(team1BatterScores[7].runs)
-    $('#t1p9Runs').text(team1BatterScores[8].runs)
-    $('#t1p10Runs').text(team1BatterScores[9].runs)
-    $('#t1p11Runs').text(team1BatterScores[10].runs)
-    $('#t2p1Runs').text(team2BatterScores[0].runs)
-    $('#t2p2Runs').text(team2BatterScores[1].runs)
-    $('#t2p3Runs').text(team2BatterScores[2].runs)
-    $('#t2p4Runs').text(team2BatterScores[3].runs)
-    $('#t2p5Runs').text(team2BatterScores[4].runs)
-    $('#t2p6Runs').text(team2BatterScores[5].runs)
-    $('#t2p7Runs').text(team2BatterScores[6].runs)
-    $('#t2p8Runs').text(team2BatterScores[7].runs)
-    $('#t2p9Runs').text(team2BatterScores[8].runs)
-    $('#t2p10Runs').text(team2BatterScores[9].runs)
-    $('#t2p11Runs').text(team2BatterScores[10].runs)
-    $('#t1p1NotOuts').text(team1BatterScores[0].notouts)
-    $('#t1p2NotOuts').text(team1BatterScores[1].notouts)
-    $('#t1p3NotOuts').text(team1BatterScores[2].notouts)
-    $('#t1p4NotOuts').text(team1BatterScores[3].notouts)
-    $('#t1p5NotOuts').text(team1BatterScores[4].notouts)
-    $('#t1p6NotOuts').text(team1BatterScores[5].notouts)
-    $('#t1p7NotOuts').text(team1BatterScores[6].notouts)
-    $('#t1p8NotOuts').text(team1BatterScores[7].notouts)
-    $('#t1p9NotOuts').text(team1BatterScores[8].notouts)
-    $('#t1p10NotOuts').text(team1BatterScores[9].notouts)
-    $('#t1p11NotOuts').text(team2BatterScores[10].notouts)
-    $('#t2p1NotOuts').text(team2BatterScores[0].notouts)
-    $('#t2p2NotOuts').text(team2BatterScores[1].notouts)
-    $('#t2p3NotOuts').text(team2BatterScores[2].notouts)
-    $('#t2p4NotOuts').text(team2BatterScores[3].notouts)
-    $('#t2p5NotOuts').text(team2BatterScores[4].notouts)
-    $('#t2p6NotOuts').text(team2BatterScores[5].notouts)
-    $('#t2p7NotOuts').text(team2BatterScores[6].notouts)
-    $('#t2p8NotOuts').text(team2BatterScores[7].notouts)
-    $('#t2p9NotOuts').text(team2BatterScores[8].notouts)
-    $('#t2p10NotOuts').text(team2BatterScores[9].notouts)
-    $('#t2p11NotOuts').text(team2BatterScores[10].notouts)
+    if (gameOver === true) {
+      $('#t1p1Runs').text(team1BatterScores[0].runs)
+      $('#t1p2Runs').text(team1BatterScores[1].runs)
+      $('#t1p3Runs').text(team1BatterScores[2].runs)
+      $('#t1p4Runs').text(team1BatterScores[3].runs)
+      $('#t1p5Runs').text(team1BatterScores[4].runs)
+      $('#t1p6Runs').text(team1BatterScores[5].runs)
+      $('#t1p7Runs').text(team1BatterScores[6].runs)
+      $('#t1p8Runs').text(team1BatterScores[7].runs)
+      $('#t1p9Runs').text(team1BatterScores[8].runs)
+      $('#t1p10Runs').text(team1BatterScores[9].runs)
+      $('#t1p11Runs').text(team1BatterScores[10].runs)
+      $('#t2p1Runs').text(team2BatterScores[0].runs)
+      $('#t2p2Runs').text(team2BatterScores[1].runs)
+      $('#t2p3Runs').text(team2BatterScores[2].runs)
+      $('#t2p4Runs').text(team2BatterScores[3].runs)
+      $('#t2p5Runs').text(team2BatterScores[4].runs)
+      $('#t2p6Runs').text(team2BatterScores[5].runs)
+      $('#t2p7Runs').text(team2BatterScores[6].runs)
+      $('#t2p8Runs').text(team2BatterScores[7].runs)
+      $('#t2p9Runs').text(team2BatterScores[8].runs)
+      $('#t2p10Runs').text(team2BatterScores[9].runs)
+      $('#t2p11Runs').text(team2BatterScores[10].runs)
+      $('#t1p1NotOuts').text(team1BatterScores[0].notouts)
+      $('#t1p2NotOuts').text(team1BatterScores[1].notouts)
+      $('#t1p3NotOuts').text(team1BatterScores[2].notouts)
+      $('#t1p4NotOuts').text(team1BatterScores[3].notouts)
+      $('#t1p5NotOuts').text(team1BatterScores[4].notouts)
+      $('#t1p6NotOuts').text(team1BatterScores[5].notouts)
+      $('#t1p7NotOuts').text(team1BatterScores[6].notouts)
+      $('#t1p8NotOuts').text(team1BatterScores[7].notouts)
+      $('#t1p9NotOuts').text(team1BatterScores[8].notouts)
+      $('#t1p10NotOuts').text(team1BatterScores[9].notouts)
+      $('#t1p11NotOuts').text(team2BatterScores[10].notouts)
+      $('#t2p1NotOuts').text(team2BatterScores[0].notouts)
+      $('#t2p2NotOuts').text(team2BatterScores[1].notouts)
+      $('#t2p3NotOuts').text(team2BatterScores[2].notouts)
+      $('#t2p4NotOuts').text(team2BatterScores[3].notouts)
+      $('#t2p5NotOuts').text(team2BatterScores[4].notouts)
+      $('#t2p6NotOuts').text(team2BatterScores[5].notouts)
+      $('#t2p7NotOuts').text(team2BatterScores[6].notouts)
+      $('#t2p8NotOuts').text(team2BatterScores[7].notouts)
+      $('#t2p9NotOuts').text(team2BatterScores[8].notouts)
+      $('#t2p10NotOuts').text(team2BatterScores[9].notouts)
+      $('#t2p11NotOuts').text(team2BatterScores[10].notouts)
+    }
   });
+
+//EASTER EGG
+
+const checkCatGame = function() {
+  if (gon.t1 == 'Meow' && gon.t2 == 'Meow-Meow') {
+    $('.team-list').addClass('cat-game');
+    $('.scores').addClass('cat-game');
+    $('.scorecard').addClass('cat-game-scorecard');
+    $('.first-team').addClass('cat-game-teams1');
+    $('.second-team').addClass('cat-game-teams2');
+  }
+}
+
+//SETUP FOR GAME
+
+  checkCatGame();
+  setScorecard();
+  setStrike();
+  $('#submit').hide();
+
+
 });
